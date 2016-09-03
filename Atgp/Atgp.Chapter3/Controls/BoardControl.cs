@@ -26,7 +26,7 @@ namespace Atgp.Chapter3.Controls
 
         /// <param name="tileSize">Size of each tile in pixel units.</param>
         /// <param name="boardSize">Size of the board in tile units.</param>
-        public BoardControl(Board board, Size tileSize, int grooveThicknes=1, int borderThickness=1)
+        public BoardControl(Board board, Size tileSize, int grooveThicknes = 1, int borderThickness = 1)
         {
             if (board == null)
                 throw new ArgumentNullException(nameof(board));
@@ -53,7 +53,7 @@ namespace Atgp.Chapter3.Controls
 
             var rect = new RectangleF(ClientSize);
 
-            //draw the base
+            // draw the base
             args.Graphics.SaveTransform();
             args.Graphics.SetClip(new RectangleF(
                     0, 0,
@@ -61,7 +61,7 @@ namespace Atgp.Chapter3.Controls
                     baseHeightPx));
             args.Graphics.FillRectangle(BaseColor, rect);
 
-            //draw the grooves
+            // draw the grooves
             args.Graphics.SaveTransform();
             args.Graphics.SetClip(new RectangleF(
                     BorderThickness, BorderThickness,
@@ -69,17 +69,41 @@ namespace Atgp.Chapter3.Controls
                     boardHeightPx));
             args.Graphics.FillRectangle(GrooveColor, rect);
 
-            //draw the tiles
-            for (int w = 0; w < _board.Size.Width; w++)
+            // draw the tiles
+            for (int x = 0; x < _board.Size.Width; x++)
             {
-                for (int h = 0; h < _board.Size.Height; h++)
+                for (int y = 0; y < _board.Size.Height; y++)
                 {
                     args.Graphics.SetClip(new RectangleF(
-                            w * (TileSize.Width + GrooveThickness) + BorderThickness,
-                            h * (TileSize.Height + GrooveThickness) + BorderThickness,
+                            x * (TileSize.Width + GrooveThickness) + BorderThickness,
+                            y * (TileSize.Height + GrooveThickness) + BorderThickness,
                             TileSize.Width,
                             TileSize.Height));
                     args.Graphics.FillRectangle(TileColor, rect);
+                }
+            }
+
+            // draw the path
+            if (_board.Path != null)
+            {
+                foreach (var part in _board.Path.Parts)
+                {
+                    double scale = 0.55;
+                    int centeringX = (int)(TileSize.Width * scale);
+                    int centeringY = (int)(TileSize.Height * scale);
+
+                    args.Graphics.SetClip(new RectangleF(
+                            part.X * (TileSize.Width + GrooveThickness) + BorderThickness + centeringX,
+                            part.Y * (TileSize.Height + GrooveThickness) + BorderThickness + centeringY,
+                            TileSize.Width - 2 * centeringX,
+                            TileSize.Height - 2 * centeringY));
+
+                    if (part == _board.Path.Parts.First())
+                        args.Graphics.FillRectangle(Colors.LightGreen, rect);
+                    else if (part == _board.Path.Parts.Last())
+                        args.Graphics.FillRectangle(Colors.Red, rect);
+                    else
+                        args.Graphics.FillRectangle(Colors.LightSlateGray, rect);
                 }
             }
 

@@ -57,6 +57,7 @@
     <Compile Include="Board.cs" />
     <Compile Include="Controls\BoardControl.cs" />
     <Compile Include="MainForm.cs" />
+    <Compile Include="Path.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
