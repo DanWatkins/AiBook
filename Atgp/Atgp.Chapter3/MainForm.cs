@@ -1,42 +1,67 @@
-﻿using System;
-using Eto.Forms;
+﻿using Atgp.Chapter3.Controls;
 using Eto.Drawing;
-using Atgp.Chapter3.Controls;
-using System.Collections.Generic;
+using Eto.Forms;
+using System;
 
 namespace Atgp.Chapter3
 {
     public class MainForm : Form
     {
+        private readonly Board _board;
+        private readonly BoardControl _boardControl;
+        private readonly PathPicker _pathPicker;
+
         public MainForm()
         {
             Title = "Genetic Pathfinder";
             ClientSize = new Size(1280, 720);
 
-            var stackLayout = new StackLayout
+            _board = new Board(new Size(16, 12));
+
+            _boardControl = new BoardControl(_board, tileSize: new Size(48, 48));
+            _pathPicker = new PathPicker(_boardControl);
+            _pathPicker.PathChanged += _pathPicker_PathChanged;
+
+            var controlStackLayout = new StackLayout
             {
-                HorizontalContentAlignment = HorizontalAlignment.Stretch
+                Orientation = Orientation.Vertical
             };
 
-            var board = new Board(new Size(16, 8));
-            board.Path = new Path(new List<Point>
+            var pickPathButton = new Button
             {
-                new Point(0,1),
-                new Point(0,2),
-                new Point(1,2),
-                new Point(1,3),
-                new Point(1,4),
-                new Point(1,5),
-                new Point(2,5),
-                new Point(3,5)
-            });
+                Text = "Pick Path"
+            };
+            pickPathButton.Click += PickPathButton_Click;
 
-            stackLayout.Items.Add(
-                new StackLayoutItem(
-                    new BoardControl(board, tileSize: new Size(64, 64)),
-                    true));
+            controlStackLayout.Items.Add(new StackLayoutItem(pickPathButton));
 
-            Content = stackLayout;
+            var panel = new Panel
+            {
+                Width = 300,
+                Content = new GroupBox
+                {
+                    Text = "Control",
+                    Content = controlStackLayout
+                }
+            };
+
+            Content = new Splitter
+            {
+                Orientation = Orientation.Horizontal,
+                Panel1 = panel,
+                Panel2 = _boardControl
+            };
+        }
+
+        private void _pathPicker_PathChanged(object sender, EventArgs e)
+        {
+            _board.Path = _pathPicker.Path;
+            _boardControl.Invalidate();
+        }
+
+        private void PickPathButton_Click(object sender, EventArgs e)
+        {
+            _pathPicker.Reset();
         }
     }
 }
