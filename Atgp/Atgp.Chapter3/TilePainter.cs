@@ -15,7 +15,24 @@ namespace Atgp.Chapter3
                 throw new ArgumentNullException(nameof(boardControl));
 
             _boardControl = boardControl;
-            _boardControl.MouseDown += BoardControl_MouseDown;
+        }
+
+        private bool _enablePainting = false;
+        public bool EnablePainting
+        {
+            get { return _enablePainting; }
+            set
+            {
+                if (_enablePainting == value)
+                    return;
+
+                if (value)
+                    _boardControl.MouseDown += BoardControl_MouseDown;
+                else
+                    _boardControl.MouseDown -= BoardControl_MouseDown;
+
+                _enablePainting = value;
+            }
         }
 
         private void BoardControl_MouseDown(object sender, MouseEventArgs e)

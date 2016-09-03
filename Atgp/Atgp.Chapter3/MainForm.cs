@@ -12,6 +12,9 @@ namespace Atgp.Chapter3
         private readonly PathPicker _pathPicker;
         private readonly TilePainter _tilePainter;
 
+        private readonly RadioToolItem _pickPathButton;
+        private readonly RadioToolItem _paintTilesButton;
+
         public MainForm()
         {
             Title = "Genetic Pathfinder";
@@ -29,30 +32,34 @@ namespace Atgp.Chapter3
                 Orientation = Orientation.Vertical
             };
 
-            var pickPathButton = new Button
+            _pickPathButton = new RadioToolItem
             {
                 Text = "Pick Path"
             };
-            pickPathButton.Click += PickPathButton_Click;
+            _pickPathButton.Click += PickPathButton_Click;
 
-            controlStackLayout.Items.Add(new StackLayoutItem(pickPathButton));
-
-            var panel = new Panel
+            _paintTilesButton = new RadioToolItem
             {
-                Width = 300,
-                Content = new GroupBox
+                Text = "Paint Tiles"
+            };
+            _paintTilesButton.CheckedChanged += _paintTilesButton_CheckedChanged;
+
+            var toolBar = new ToolBar
+            {
+                Items =
                 {
-                    Text = "Control",
-                    Content = controlStackLayout
+                    _pickPathButton,
+                    _paintTilesButton
                 }
             };
 
-            Content = new Splitter
-            {
-                Orientation = Orientation.Horizontal,
-                Panel1 = panel,
-                Panel2 = _boardControl
-            };
+            ToolBar = toolBar;
+            Content = _boardControl;
+        }
+
+        private void _paintTilesButton_CheckedChanged(object sender, EventArgs e)
+        {
+            _tilePainter.EnablePainting = _paintTilesButton.Checked;
         }
 
         private void _pathPicker_PathChanged(object sender, EventArgs e)
