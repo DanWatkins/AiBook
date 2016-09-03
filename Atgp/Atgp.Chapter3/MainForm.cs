@@ -17,11 +17,11 @@ namespace Atgp.Chapter3
                 HorizontalContentAlignment = HorizontalAlignment.Stretch
             };
 
+            var board = new Board(new Size(16, 8));
+
             stackLayout.Items.Add(
                 new StackLayoutItem(
-                    new BoardControl(
-                        tileSize: new Size(64, 64),
-                        boardSize: new Size(16, 8)), 
+                    new BoardControl(board, tileSize: new Size(64, 64)),
                     true));
 
             Content = stackLayout;
