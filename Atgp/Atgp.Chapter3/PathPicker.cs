@@ -2,6 +2,7 @@
 using Eto.Drawing;
 using System;
 using System.Collections.Generic;
+using Eto.Forms;
 
 namespace Atgp.Chapter3
 {
@@ -44,7 +45,7 @@ namespace Atgp.Chapter3
             PathChanged?.Invoke(this, EventArgs.Empty);
         }
 
-        private void BoardControl_MouseDown(object sender, Eto.Forms.MouseEventArgs e)
+        private void BoardControl_MouseDown(object sender, MouseEventArgs e)
         {
             if (_start == null)
                 _start = e.Location;

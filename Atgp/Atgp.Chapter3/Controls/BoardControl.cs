@@ -11,7 +11,9 @@ namespace Atgp.Chapter3.Controls
 
         public Color BaseColor { get; set; } = Colors.Black;
 
-        public Color TileColor { get; set; } = Colors.Black;
+        public Color GroundColor { get; set; } = Colors.SandyBrown;
+
+        public Color BlockColor { get; set; } = Colors.Black;
 
         public Color GrooveColor { get; set; } = Colors.Gray;
 
@@ -56,12 +58,26 @@ namespace Atgp.Chapter3.Controls
             {
                 for (int y = 0; y < Board.Size.Height; y++)
                 {
+                    var tile = Board.Tiles[x + y * Board.Size.Width];
+
                     args.Graphics.SetClip(new RectangleF(
                             x * (Board.TileSize.Width + Board.GrooveThickness) + Board.BorderThickness,
                             y * (Board.TileSize.Height + Board.GrooveThickness) + Board.BorderThickness,
                             Board.TileSize.Width,
                             Board.TileSize.Height));
-                    args.Graphics.FillRectangle(TileColor, rect);
+
+                    switch (tile)
+                    {
+                        case Tile.Ground:
+                            args.Graphics.FillRectangle(GroundColor, rect);
+                            break;
+                        case Tile.Block:
+                            args.Graphics.FillRectangle(BlockColor, rect);
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+
                 }
             }
 
@@ -70,7 +86,7 @@ namespace Atgp.Chapter3.Controls
             {
                 foreach (var part in Board.Path.Parts)
                 {
-                    double scale = 0.55;
+                    const double scale = 0.55;
                     int centeringX = (int)(Board.TileSize.Width * scale);
                     int centeringY = (int)(Board.TileSize.Height * scale);
 

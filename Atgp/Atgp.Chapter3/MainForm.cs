@@ -10,6 +10,7 @@ namespace Atgp.Chapter3
         private readonly Board _board;
         private readonly BoardControl _boardControl;
         private readonly PathPicker _pathPicker;
+        private readonly TilePainter _tilePainter;
 
         public MainForm()
         {
@@ -21,6 +22,7 @@ namespace Atgp.Chapter3
             _boardControl = new BoardControl(_board );
             _pathPicker = new PathPicker(_boardControl);
             _pathPicker.PathChanged += _pathPicker_PathChanged;
+            _tilePainter = new TilePainter(_boardControl);
 
             var controlStackLayout = new StackLayout
             {
