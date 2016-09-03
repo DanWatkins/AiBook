@@ -16,9 +16,9 @@ namespace Atgp.Chapter3
             Title = "Genetic Pathfinder";
             ClientSize = new Size(1280, 720);
 
-            _board = new Board(new Size(16, 12));
+            _board = new Board(new Size(16, 12), new Size(48, 48));
 
-            _boardControl = new BoardControl(_board, tileSize: new Size(48, 48));
+            _boardControl = new BoardControl(_board );
             _pathPicker = new PathPicker(_boardControl);
             _pathPicker.PathChanged += _pathPicker_PathChanged;
 

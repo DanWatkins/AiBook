@@ -9,7 +9,7 @@ namespace Atgp.Chapter3
     {
         private PointF? _start;
         private PointF? _finish;
-        private BoardControl _boardControl;
+        private readonly BoardControl _boardControl;
 
         public Path Path { get; private set; }
 
@@ -17,6 +17,9 @@ namespace Atgp.Chapter3
 
         public PathPicker(BoardControl boardControl)
         {
+            if (boardControl == null)
+                throw new ArgumentNullException(nameof(boardControl));
+
             _boardControl = boardControl;
             boardControl.MouseDown += BoardControl_MouseDown;
         }
@@ -30,8 +33,8 @@ namespace Atgp.Chapter3
                 if (point == null) return;
 
                 list.Add(new Point(
-                    (int)(point.Value.X / _boardControl.TileSize.Width),
-                    (int)(point.Value.Y / _boardControl.TileSize.Height)));
+                    (int)(point.Value.X / _boardControl.Board.TileSize.Width),
+                    (int)(point.Value.Y / _boardControl.Board.TileSize.Height)));
             };
 
             tryAdd(_start);
