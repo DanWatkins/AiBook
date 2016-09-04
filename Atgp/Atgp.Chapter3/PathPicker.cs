@@ -1,4 +1,4 @@
-﻿using Atgp.Chapter3.Controls;
+﻿using Atgp.Chapter3.Views;
 using Eto.Drawing;
 using System;
 using System.Collections.Generic;
@@ -10,13 +10,13 @@ namespace Atgp.Chapter3
     {
         private PointF? _start;
         private PointF? _finish;
-        private readonly BoardControl _boardControl;
+        private readonly BoardDrawable _boardControl;
 
         public Path Path { get; private set; }
 
         public event EventHandler PathChanged;
 
-        public PathPicker(BoardControl boardControl)
+        public PathPicker(BoardDrawable boardControl)
         {
             if (boardControl == null)
                 throw new ArgumentNullException(nameof(boardControl));

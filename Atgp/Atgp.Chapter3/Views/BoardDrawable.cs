@@ -3,11 +3,24 @@ using Eto.Forms;
 using System;
 using System.Linq;
 
-namespace Atgp.Chapter3.Controls
+namespace Atgp.Chapter3.Views
 {
-    public class BoardControl : Drawable
+    public class BoardDrawable : Drawable
     {
-        public Board Board { get; }
+        private Board _board;
+        public Board Board
+        {
+            get { return _board; }
+            set
+            {
+                if (value == null)
+                    throw new ArgumentNullException(nameof(value));
+
+                _board = value;
+
+                Paint += BoardControl_Paint;
+            }
+        }
 
         public Color BaseColor { get; set; } = Colors.Black;
 
@@ -17,15 +30,6 @@ namespace Atgp.Chapter3.Controls
 
         public Color GrooveColor { get; set; } = Colors.Gray;
 
-        public BoardControl(Board board)
-        {
-            if (board == null)
-                throw new ArgumentNullException(nameof(board));
-
-            Board = board;
-
-            Paint += BoardControl_Paint;
-        }
 
         private void BoardControl_Paint(object sender, PaintEventArgs args)
         {

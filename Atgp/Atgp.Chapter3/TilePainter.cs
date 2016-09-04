@@ -1,5 +1,5 @@
 ﻿using System;
-using Atgp.Chapter3.Controls;
+using Atgp.Chapter3.Views;
 using Eto.Drawing;
 using Eto.Forms;
 
@@ -7,9 +7,9 @@ namespace Atgp.Chapter3
 {
     public class TilePainter
     {
-        private readonly BoardControl _boardControl;
+        private readonly BoardDrawable _boardControl;
 
-        public TilePainter(BoardControl boardControl)
+        public TilePainter(BoardDrawable boardControl)
         {
             if (boardControl == null)
                 throw new ArgumentNullException(nameof(boardControl));

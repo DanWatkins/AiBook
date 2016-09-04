@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form
+  xmlns="http://schema.picoe.ca/eto.forms" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:custom="clr-namespace:Atgp.Chapter3.Views;assembly=Atgp.Chapter3"
+  Title="My Form"
+  ClientSize="1280,720"
+  >
+  <Form.Content>
+    <custom:BoardDrawable x:Name="MainBoardDrawable">
+    </custom:BoardDrawable>
+  </Form.Content>
+
+  <Form.ToolBar>
+    <ToolBar>
+      <RadioToolItem x:Name="PickPathRadioToolItem" Text="Pick Path" Click="PickPathRadioToolItem_Click" />
+      <RadioToolItem x:Name="PaintTilesRadioToolItem" Text="Paint Tiles" CheckedChanged="PaintTilesRadioToolItem_CheckedChanged"/>
+    </ToolBar>
+  </Form.ToolBar>
+</Form>
