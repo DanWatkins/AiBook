@@ -3,7 +3,7 @@ using Eto.Forms;
 using System;
 using System.Linq;
 
-namespace Atgp.Chapter3.Views
+namespace DanWatkins.AiSystem.Views
 {
     public class BoardDrawable : Drawable
     {
@@ -29,7 +29,6 @@ namespace Atgp.Chapter3.Views
         public Color BlockColor { get; set; } = Colors.Black;
 
         public Color GrooveColor { get; set; } = Colors.Gray;
-
 
         private void BoardControl_Paint(object sender, PaintEventArgs args)
         {
@@ -81,7 +80,6 @@ namespace Atgp.Chapter3.Views
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
-
                 }
             }
 

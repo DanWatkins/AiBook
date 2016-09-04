@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Atgp.Chapter3
+namespace DanWatkins.AiSystem
 {
     public class Path
     {

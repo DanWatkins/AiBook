@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Atgp.Chapter3
+namespace DanWatkins.AiSystem
 {
     public class Board
     {

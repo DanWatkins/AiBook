@@ -1,10 +1,10 @@
-﻿using Atgp.Chapter3.Views;
+﻿using DanWatkins.AiSystem.Views;
 using Eto.Drawing;
 using System;
 using System.Collections.Generic;
 using Eto.Forms;
 
-namespace Atgp.Chapter3
+namespace DanWatkins.AiSystem
 {
     public class PathPicker
     {

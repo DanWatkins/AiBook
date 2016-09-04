@@ -2,9 +2,9 @@
 using Eto.Forms;
 using Eto.Drawing;
 using Eto.Serialization.Xaml;
-using Atgp.Chapter3.Views;
+using DanWatkins.AiSystem.Views;
 
-namespace Atgp.Chapter3
+namespace DanWatkins.AiSystem
 {
     public partial class MainForm : Form
     {

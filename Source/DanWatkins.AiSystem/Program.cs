@@ -2,7 +2,7 @@
 using Eto;
 using Eto.Forms;
 
-namespace Atgp.Chapter3
+namespace DanWatkins.AiSystem
 {
     public class Program
     {

@@ -1,9 +1,9 @@
 ﻿using System;
-using Atgp.Chapter3.Views;
+using DanWatkins.AiSystem.Views;
 using Eto.Drawing;
 using Eto.Forms;
 
-namespace Atgp.Chapter3
+namespace DanWatkins.AiSystem
 {
     public class TilePainter
     {

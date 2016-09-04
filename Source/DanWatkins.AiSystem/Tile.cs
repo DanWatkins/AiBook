@@ -1,4 +1,4 @@
-﻿namespace Atgp.Chapter3
+﻿namespace DanWatkins.AiSystem
 {
     public enum Tile
     {
