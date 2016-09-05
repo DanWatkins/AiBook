@@ -22,7 +22,16 @@ namespace DanWatkins.AiSystem
                 throw new ArgumentNullException(nameof(boardControl));
 
             _boardControl = boardControl;
-            boardControl.MouseDown += BoardControl_MouseDown;
+        }
+
+        public void Start()
+        {
+            _start = null;
+            _finish = null;
+
+            BuildPath();
+
+            _boardControl.MouseDown += BoardControl_MouseDown;
         }
 
         private void BuildPath()
@@ -50,17 +59,12 @@ namespace DanWatkins.AiSystem
             if (_start == null)
                 _start = e.Location;
             else if (_finish == null)
+            {
                 _finish = e.Location;
+                _boardControl.MouseDown -= BoardControl_MouseDown;
+            }
 
-            BuildPath();
-        }
-
-        internal void Reset()
-        {
-            _start = null;
-            _finish = null;
-
-            BuildPath();
+                BuildPath();
         }
     }
 }

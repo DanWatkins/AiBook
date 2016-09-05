@@ -2,7 +2,6 @@
 using Eto.Forms;
 using Eto.Drawing;
 using Eto.Serialization.Xaml;
-using DanWatkins.AiSystem.Views;
 
 namespace DanWatkins.AiSystem
 {
@@ -36,7 +35,7 @@ namespace DanWatkins.AiSystem
 
         private void PickPathRadioToolItem_Click(object sender, EventArgs e)
         {
-            _pathPicker.Reset();
+            _pathPicker.Start();
         }
     }
 }

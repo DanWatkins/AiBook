@@ -7,8 +7,8 @@ namespace DanWatkins.AiSystem
     {
         private BoardDrawable MainBoardDrawable { get; set; }
 
-        private RadioToolItem PickPathRadioToolItem { get; set; }
+        private ButtonToolItem PickPathRadioToolItem { get; set; }
 
-        private RadioToolItem PaintTilesRadioToolItem { get; set; }
+        private CheckToolItem PaintTilesRadioToolItem { get; set; }
     }
 }
