@@ -14,7 +14,7 @@
   <Form.ToolBar>
     <ToolBar>
       <RadioToolItem x:Name="PickPathRadioToolItem" Text="Pick Path" Click="PickPathRadioToolItem_Click" />
-      <RadioToolItem x:Name="PaintTilesRadioToolItem" Text="Paint Tiles" CheckedChanged="PaintTilesRadioToolItem_CheckedChanged"/>
+      <RadioToolItem x:Name="PaintTilesRadioToolItem" Text="Paint Tiles" Click="PaintTilesRadioToolItem_Click"/>
     </ToolBar>
   </Form.ToolBar>
 </Form>

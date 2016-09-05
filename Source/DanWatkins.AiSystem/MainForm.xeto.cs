@@ -23,7 +23,7 @@ namespace DanWatkins.AiSystem
             _tilePainter = new TilePainter(MainBoardDrawable);
         }
 
-        private void PaintTilesRadioToolItem_CheckedChanged(object sender, EventArgs e)
+        private void PaintTilesRadioToolItem_Click(object sender, EventArgs e)
         {
             _tilePainter.EnablePainting = PaintTilesRadioToolItem.Checked;
         }
