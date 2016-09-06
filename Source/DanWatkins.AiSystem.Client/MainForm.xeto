@@ -2,7 +2,7 @@
 <Form
   xmlns="http://schema.picoe.ca/eto.forms" 
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-  xmlns:custom="clr-namespace:DanWatkins.AiSystem.Views;assembly=DanWatkins.AiSystem"
+  xmlns:custom="clr-namespace:DanWatkins.AiSystem.Client.Views;assembly=DanWatkins.AiSystem.Client"
   Title="My Form"
   ClientSize="1280,720"
   >
@@ -13,8 +13,8 @@
 
   <Form.ToolBar>
     <ToolBar>
-      <ButtonToolItem x:Name="PickPathRadioToolItem" Text="Pick Path" Click="PickPathRadioToolItem_Click" />
-      <CheckToolItem x:Name="PaintTilesRadioToolItem" Text="Paint Tiles" CheckedChanged="PaintTilesRadioToolItem_Click"/>
+      <RadioToolItem x:Name="PickPathRadioToolItem" Text="Pick Path" CheckChanged="PickPathRadioToolItem_Click" />
+      <RadioToolItem x:Name="PaintTilesRadioToolItem" Text="Paint Tiles" CheckedChanged="PaintTilesRadioToolItem_Click"/>
     </ToolBar>
   </Form.ToolBar>
 </Form>

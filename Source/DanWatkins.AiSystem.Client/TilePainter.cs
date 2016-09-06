@@ -1,9 +1,9 @@
 ﻿using System;
-using DanWatkins.AiSystem.Views;
+using DanWatkins.AiSystem.Client.Views;
 using Eto.Drawing;
 using Eto.Forms;
 
-namespace DanWatkins.AiSystem
+namespace DanWatkins.AiSystem.Client
 {
     public class TilePainter
     {

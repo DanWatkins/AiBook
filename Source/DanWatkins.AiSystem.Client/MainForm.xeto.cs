@@ -3,7 +3,7 @@ using Eto.Forms;
 using Eto.Drawing;
 using Eto.Serialization.Xaml;
 
-namespace DanWatkins.AiSystem
+namespace DanWatkins.AiSystem.Client
 {
     public partial class MainForm : Form
     {

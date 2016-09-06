@@ -3,7 +3,7 @@ using Eto.Forms;
 using System;
 using System.Linq;
 
-namespace DanWatkins.AiSystem.Views
+namespace DanWatkins.AiSystem.Client.Views
 {
     public class BoardDrawable : Drawable
     {
