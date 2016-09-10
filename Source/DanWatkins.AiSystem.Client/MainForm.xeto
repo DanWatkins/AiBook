@@ -13,7 +13,7 @@
 
   <Form.ToolBar>
     <ToolBar>
-      <RadioToolItem x:Name="PickPathRadioToolItem" Text="Pick Path" CheckChanged="PickPathRadioToolItem_Click" />
+      <RadioToolItem x:Name="PickPathRadioToolItem" Text="Pick Path" CheckedChanged="PickPathRadioToolItem_Click" />
       <RadioToolItem x:Name="PaintTilesRadioToolItem" Text="Paint Tiles" CheckedChanged="PaintTilesRadioToolItem_Click"/>
     </ToolBar>
   </Form.ToolBar>
