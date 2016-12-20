@@ -5,7 +5,7 @@ namespace DanWatkins.AiSystem.Client
 {
     public partial class MainForm
     {
-        private BoardDrawable MainBoardDrawable { get; set; }
+        private BoardView MainBoardView { get; set; }
 
         private RadioToolItem PickPathRadioToolItem { get; set; }
 

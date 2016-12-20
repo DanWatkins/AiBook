@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace DanWatkins.AiSystem.Client.Views
 {
-    public class BoardDrawable : Drawable
+    public class BoardView : Drawable
     {
         private Board _board;
         public Board Board

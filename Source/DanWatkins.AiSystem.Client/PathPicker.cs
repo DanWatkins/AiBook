@@ -10,18 +10,18 @@ namespace DanWatkins.AiSystem.Client
     {
         private PointF? _start;
         private PointF? _finish;
-        private readonly BoardDrawable _boardControl;
+        private readonly BoardView _boardView;
 
         public Path Path { get; private set; }
 
         public event EventHandler PathChanged;
 
-        public PathPicker(BoardDrawable boardControl)
+        public PathPicker(BoardView boardView)
         {
-            if (boardControl == null)
-                throw new ArgumentNullException(nameof(boardControl));
+            if (boardView == null)
+                throw new ArgumentNullException(nameof(boardView));
 
-            _boardControl = boardControl;
+            _boardView = boardView;
         }
 
         public void Start()
@@ -31,7 +31,7 @@ namespace DanWatkins.AiSystem.Client
 
             BuildPath();
 
-            _boardControl.MouseDown += BoardControl_MouseDown;
+            _boardView.MouseDown += BoardControl_MouseDown;
         }
 
         private void BuildPath()
@@ -43,8 +43,8 @@ namespace DanWatkins.AiSystem.Client
                 if (point == null) return;
 
                 list.Add(new Point(
-                    (int)(point.Value.X / _boardControl.Board.TileSize.Width),
-                    (int)(point.Value.Y / _boardControl.Board.TileSize.Height)));
+                    (int)(point.Value.X / _boardView.Board.TileSize.Width),
+                    (int)(point.Value.Y / _boardView.Board.TileSize.Height)));
             };
 
             tryAdd(_start);
@@ -61,7 +61,7 @@ namespace DanWatkins.AiSystem.Client
             else if (_finish == null)
             {
                 _finish = e.Location;
-                _boardControl.MouseDown -= BoardControl_MouseDown;
+                _boardView.MouseDown -= BoardControl_MouseDown;
             }
 
                 BuildPath();

@@ -16,10 +16,17 @@ namespace DanWatkins.AiSystem.Client
             XamlReader.Load(this);
 
             _board = new Board(new Size(16, 12), new Size(48, 48));
-            MainBoardDrawable.Board = _board;
-            _pathPicker = new PathPicker(MainBoardDrawable);
+            MainBoardView.Board = _board;
+            MainBoardView.MouseDown += MainBoardView_MouseDown;
+            _pathPicker = new PathPicker(MainBoardView);
             _pathPicker.PathChanged += _pathPicker_PathChanged;
-            _tilePainter = new TilePainter(MainBoardDrawable);
+            _tilePainter = new TilePainter(_board);
+        }
+
+        private void MainBoardView_MouseDown(object sender, MouseEventArgs e)
+        {
+            _tilePainter.PaintTile(e.Location.X, e.Location.Y);
+            MainBoardView.Invalidate();
         }
 
         private void PaintTilesRadioToolItem_Click(object sender, EventArgs e)
@@ -30,7 +37,7 @@ namespace DanWatkins.AiSystem.Client
         private void _pathPicker_PathChanged(object sender, EventArgs e)
         {
             _board.Path = _pathPicker.Path;
-            MainBoardDrawable.Invalidate();
+            MainBoardView.Invalidate();
         }
 
         private void PickPathRadioToolItem_Click(object sender, EventArgs e)

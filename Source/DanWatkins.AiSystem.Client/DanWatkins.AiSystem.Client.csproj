@@ -30,24 +30,28 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Eto, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Eto.Forms.2.2.0\lib\net45\Eto.dll</HintPath>
+    <Reference Include="Eto, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Eto.Forms.2.3.0\lib\net45\Eto.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Eto.Gtk2, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Eto.Platform.Gtk.2.2.0\lib\net45\Eto.Gtk2.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Eto.Serialization.Xaml, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Eto.Serialization.Xaml.2.2.0\lib\net45\Eto.Serialization.Xaml.dll</HintPath>
+    <Reference Include="Eto.Gtk3, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Eto.Platform.Gtk3.2.3.0\lib\net45\Eto.Gtk3.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Eto.Wpf, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Eto.Platform.Wpf.2.2.0\lib\net45\Eto.Wpf.dll</HintPath>
+    <Reference Include="Eto.Serialization.Xaml, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Eto.Serialization.Xaml.2.3.0\lib\net45\Eto.Serialization.Xaml.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Portable.Xaml, Version=0.6.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Portable.Xaml.0.6.1\lib\dotnet\Portable.Xaml.dll</HintPath>
+    <Reference Include="Eto.Wpf, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Eto.Platform.Wpf.2.3.0\lib\net45\Eto.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Portable.Xaml, Version=0.15.0.0, Culture=neutral, PublicKeyToken=ba4456acace7dab7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Portable.Xaml.0.15.0\lib\portable-net45+win+wpa81+wp80+MonoAndroid10+xamarinios10+MonoTouch10\Portable.Xaml.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -57,7 +61,7 @@
     <Compile Include="MainForm.xeto.designer.cs">
       <DependentUpon>MainForm.xeto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\BoardDrawable.cs" />
+    <Compile Include="Views\BoardView.cs" />
     <Compile Include="MainForm.xeto.cs">
       <DependentUpon>MainForm.xeto</DependentUpon>
     </Compile>
@@ -72,13 +76,14 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\DanWatkins.AiSystem\DanWatkins.AiSystem.csproj">
       <Project>{453E9685-F239-46AB-AADD-50843351AEF2}</Project>
       <Name>DanWatkins.AiSystem</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DanWatkins.AiSystem.Client"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DanWatkins.AiSystem.Tests", "Source\DanWatkins.AiSystem.Tests\DanWatkins.AiSystem.Tests.csproj", "{A2068F4F-D141-464A-AAA5-677C49455375}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DanWatkins.AiSystem.Client.Tests", "Source\DanWatkins.AiSystem.Client.Tests\DanWatkins.AiSystem.Client.Tests.csproj", "{04C13F22-09C8-4559-8460-D1402D41B85B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A2068F4F-D141-464A-AAA5-677C49455375}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2068F4F-D141-464A-AAA5-677C49455375}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2068F4F-D141-464A-AAA5-677C49455375}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04C13F22-09C8-4559-8460-D1402D41B85B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04C13F22-09C8-4559-8460-D1402D41B85B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04C13F22-09C8-4559-8460-D1402D41B85B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04C13F22-09C8-4559-8460-D1402D41B85B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

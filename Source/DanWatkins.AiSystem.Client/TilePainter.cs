@@ -7,42 +7,28 @@ namespace DanWatkins.AiSystem.Client
 {
     public class TilePainter
     {
-        private readonly BoardDrawable _boardControl;
+        private readonly Board _board;
 
-        public TilePainter(BoardDrawable boardControl)
+        public bool EnablePainting { get; set; }
+
+        public TilePainter(Board boardView)
         {
-            if (boardControl == null)
-                throw new ArgumentNullException(nameof(boardControl));
+            if (boardView == null)
+                throw new ArgumentNullException(nameof(boardView));
 
-            _boardControl = boardControl;
+            _board = boardView;
         }
-
-        private bool _enablePainting = false;
-        public bool EnablePainting
+      
+        public void PaintTile(float x, float y)
         {
-            get { return _enablePainting; }
-            set
-            {
-                if (_enablePainting == value)
-                    return;
+            if (!EnablePainting)
+                return;
 
-                if (value)
-                    _boardControl.MouseDown += BoardControl_MouseDown;
-                else
-                    _boardControl.MouseDown -= BoardControl_MouseDown;
-
-                _enablePainting = value;
-            }
-        }
-
-        private void BoardControl_MouseDown(object sender, MouseEventArgs e)
-        {
             var point = new Point(
-                (int) (e.Location.X / _boardControl.Board.TileSize.Width),
-                (int) (e.Location.Y / _boardControl.Board.TileSize.Height));
+                (int) (x / _board.TileSize.Width),
+                (int) (y / _board.TileSize.Height));
 
-            _boardControl.Board.Tiles[point.X + point.Y * _boardControl.Board.Size.Width] = Tile.Block;
-            _boardControl.Invalidate();
+            _board.Tiles[point.X + point.Y * _board.Size.Width] = Tile.Block;
         }
     }
 }
