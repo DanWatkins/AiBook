@@ -58,22 +58,18 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainForm.xeto.designer.cs">
-      <DependentUpon>MainForm.xeto.cs</DependentUpon>
-    </Compile>
+    <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\BoardView.cs" />
-    <Compile Include="MainForm.xeto.cs">
-      <DependentUpon>MainForm.xeto</DependentUpon>
-    </Compile>
     <Compile Include="PathPicker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TilePainter.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="MainForm.xeto">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
+    <Compile Include="Views\MainView.xeto.cs">
+      <DependentUpon>MainView.xeto</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainView.xeto.designer.cs">
+      <DependentUpon>MainView.xeto.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DanWatkins.AiSystem\DanWatkins.AiSystem.csproj">
@@ -84,6 +80,9 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <EmbeddedResource Include="Views\MainView.xeto">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

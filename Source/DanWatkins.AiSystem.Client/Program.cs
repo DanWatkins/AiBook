@@ -9,7 +9,7 @@ namespace DanWatkins.AiSystem.Client
         [STAThread]
         public static void Main(string[] args)
         {
-            new Application(Platform.Detect).Run(new MainForm());
+            new Application(Platform.Detect).Run(new Views.MainView());
         }
     }
 }

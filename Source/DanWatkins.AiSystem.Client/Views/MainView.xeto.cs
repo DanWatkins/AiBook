@@ -3,15 +3,15 @@ using Eto.Forms;
 using Eto.Drawing;
 using Eto.Serialization.Xaml;
 
-namespace DanWatkins.AiSystem.Client
+namespace DanWatkins.AiSystem.Client.Views
 {
-    public partial class MainForm : Form
+    public partial class MainView : Form
     {
         private readonly Board _board;
         private readonly PathPicker _pathPicker;
         private readonly TilePainter _tilePainter;
 
-        public MainForm()
+        public MainView()
         {
             XamlReader.Load(this);
 
