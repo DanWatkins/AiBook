@@ -2,47 +2,37 @@
 using Eto.Forms;
 using Eto.Drawing;
 using Eto.Serialization.Xaml;
+using DanWatkins.AiSystem.Client.ViewModels;
 
 namespace DanWatkins.AiSystem.Client.Views
 {
     public partial class MainView : Form
     {
-        private readonly Board _board;
-        private readonly PathPicker _pathPicker;
-        private readonly TilePainter _tilePainter;
+        private readonly MainViewModel _viewModel;
 
         public MainView()
         {
             XamlReader.Load(this);
+            _viewModel = new MainViewModel(new Board(new Size(16, 12), new Size(48, 48)), MainBoardView);
+            DataContext = _viewModel;
 
-            _board = new Board(new Size(16, 12), new Size(48, 48));
-            MainBoardView.Board = _board;
+            PaintTilesRadioToolItem.BindDataContext(c => c.Checked, (MainViewModel m) => m.EnablePainting);
+            PickPathRadioToolItem.BindDataContext(c => c.Checked, (MainViewModel m) => m.IsPicking);
+
+            MainBoardView.Board = _viewModel.Board;
             MainBoardView.MouseDown += MainBoardView_MouseDown;
-            _pathPicker = new PathPicker(MainBoardView);
-            _pathPicker.PathChanged += _pathPicker_PathChanged;
-            _tilePainter = new TilePainter(_board);
+            _viewModel.PathChanged += PathChanged;
         }
 
         private void MainBoardView_MouseDown(object sender, MouseEventArgs e)
         {
-            _tilePainter.PaintTile(e.Location.X, e.Location.Y);
+            _viewModel.PaintTile(e.Location.X, e.Location.Y);
             MainBoardView.Invalidate();
         }
 
-        private void PaintTilesRadioToolItem_Click(object sender, EventArgs e)
+        private void PathChanged(object sender, EventArgs e)
         {
-            _tilePainter.EnablePainting = PaintTilesRadioToolItem.Checked;
-        }
-
-        private void _pathPicker_PathChanged(object sender, EventArgs e)
-        {
-            _board.Path = _pathPicker.Path;
             MainBoardView.Invalidate();
-        }
-
-        private void PickPathRadioToolItem_Click(object sender, EventArgs e)
-        {
-            _pathPicker.Start();
         }
     }
 }

@@ -60,10 +60,8 @@
   <ItemGroup>
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\BoardView.cs" />
-    <Compile Include="PathPicker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TilePainter.cs" />
     <Compile Include="Views\MainView.xeto.cs">
       <DependentUpon>MainView.xeto</DependentUpon>
     </Compile>
