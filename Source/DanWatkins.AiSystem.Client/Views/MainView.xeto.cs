@@ -13,24 +13,24 @@ namespace DanWatkins.AiSystem.Client.Views
         public MainView()
         {
             XamlReader.Load(this);
-            _viewModel = new MainViewModel(new Board(new Size(16, 12), new Size(48, 48)), MainBoardView);
+            _viewModel = new MainViewModel(new Board(new Size(16, 12), new Size(48, 48)));
             DataContext = _viewModel;
 
             PaintTilesRadioToolItem.BindDataContext(c => c.Checked, (MainViewModel m) => m.EnablePainting);
             PickPathRadioToolItem.BindDataContext(c => c.Checked, (MainViewModel m) => m.IsPicking);
 
             MainBoardView.Board = _viewModel.Board;
-            MainBoardView.MouseDown += MainBoardView_MouseDown;
+            MainBoardView.MouseDown += (sender, e) => _viewModel.MouseDown.Execute(this, e);
             _viewModel.PathChanged += PathChanged;
-        }
-
-        private void MainBoardView_MouseDown(object sender, MouseEventArgs e)
-        {
-            _viewModel.PaintTile(e.Location.X, e.Location.Y);
-            MainBoardView.Invalidate();
+            _viewModel.BoardChanged += BoardChanged;
         }
 
         private void PathChanged(object sender, EventArgs e)
+        {
+            MainBoardView.Invalidate();
+        }
+
+        private void BoardChanged(object sender, EventArgs e)
         {
             MainBoardView.Invalidate();
         }
