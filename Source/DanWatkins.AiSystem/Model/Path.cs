@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DanWatkins.AiSystem
+namespace DanWatkins.AiSystem.Model
 {
     public class Path
     {

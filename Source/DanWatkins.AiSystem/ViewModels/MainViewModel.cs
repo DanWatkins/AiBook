@@ -1,4 +1,5 @@
-﻿using DanWatkins.AiSystem.Client.Views;
+﻿using DanWatkins.AiSystem.Views;
+using DanWatkins.AiSystem.Model;
 using Eto.Drawing;
 using Eto.Forms;
 using System;
@@ -8,14 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace DanWatkins.AiSystem.Client.ViewModels
+namespace DanWatkins.AiSystem.ViewModels
 {
     public class MainViewModel
     {
         private bool _isPicking = false;
         private PointF? _start;
         private PointF? _finish;
-        private readonly BoardView _boardView;
 
         public Board Board { get; }
 

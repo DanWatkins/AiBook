@@ -1,7 +1,7 @@
-﻿using DanWatkins.AiSystem.Client.Views;
+﻿using DanWatkins.AiSystem.Views;
 using Eto.Forms;
 
-namespace DanWatkins.AiSystem.Client.Views
+namespace DanWatkins.AiSystem.Views
 {
     public partial class MainView
     {

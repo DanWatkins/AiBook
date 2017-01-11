@@ -1,9 +1,10 @@
-﻿using Eto.Drawing;
+﻿using DanWatkins.AiSystem.Model;
+using Eto.Drawing;
 using Eto.Forms;
 using System;
 using System.Linq;
 
-namespace DanWatkins.AiSystem.Client.Views
+namespace DanWatkins.AiSystem.Views
 {
     public class BoardView : Drawable
     {

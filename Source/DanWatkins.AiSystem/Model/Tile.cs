@@ -1,4 +1,4 @@
-﻿namespace DanWatkins.AiSystem
+﻿namespace DanWatkins.AiSystem.Model
 {
     public enum Tile
     {

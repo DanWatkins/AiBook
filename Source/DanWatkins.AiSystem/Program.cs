@@ -2,7 +2,7 @@
 using Eto;
 using Eto.Forms;
 
-namespace DanWatkins.AiSystem.Client
+namespace DanWatkins.AiSystem
 {
     public class Program
     {

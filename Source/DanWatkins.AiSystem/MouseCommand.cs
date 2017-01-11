@@ -1,7 +1,7 @@
 ﻿using Eto.Forms;
 using System;
 
-namespace DanWatkins.AiSystem.Client
+namespace DanWatkins.AiSystem
 {
     public class MouseCommand
     {
